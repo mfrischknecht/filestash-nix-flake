@@ -4,6 +4,11 @@
 
   inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-22.05;
 
+  inputs.flake-compat = {
+    url = "github:edolstra/flake-compat";
+    flake = false;
+  };
+
   outputs = { self, nixpkgs }: {
     defaultPackage.x86_64-linux = import ./package self { inherit nixpkgs; };
 
@@ -15,8 +20,8 @@
       };
     };
 
-    nixosModule =
-    	{ config, pkgs, ... }:
+    nixosModules.default =
+    	{ config, ... }:
 	let cfg = config.services.filestash;
 	in {
 	  options.services.filestash = self.moduleOptions;
