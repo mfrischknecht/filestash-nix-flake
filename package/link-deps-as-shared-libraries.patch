@@ -1,0 +1,20 @@
+diff --git a/server/plugin/plg_image_light/lib_resize_linux_amd64.go b/server/plugin/plg_image_light/lib_resize_linux_amd64.go
+index ac1e1a0..4c04e00 100644
+--- a/server/plugin/plg_image_light/lib_resize_linux_amd64.go
++++ b/server/plugin/plg_image_light/lib_resize_linux_amd64.go
+@@ -1,4 +1,4 @@
+ package plg_image_light
+ 
+-// #cgo LDFLAGS: -lm -lgmodule-2.0 -lgobject-2.0 -lglib-2.0 -ldl -L./deps -l:libresize_linux_amd64.a
++// #cgo LDFLAGS: -lm -lgmodule-2.0 -lgobject-2.0 -lglib-2.0 -ldl -lvips -lz -lbz2 -ljpeg -lgif -ldl -licui18n -lgsf-1 -licuuc -licudata -llzma -lfreetype -lfftw3 -lfontconfig -lXext -lSM -lX11 -lorc-0.4 -lltdl -lrt -lharfbuzz -lexpat -lgio-2.0 -lpng16 -lpixman-1 -lxcb -ljbig -lexif -lpcre -ltiff -lpangoft2-1.0 -lpoppler ${SRCDIR}/deps/libresize_linux_amd64.a
+ import "C"
+diff --git a/server/plugin/plg_image_light/lib_transcode_linux_amd64.go b/server/plugin/plg_image_light/lib_transcode_linux_amd64.go
+index 2b42869..6c159f8 100644
+--- a/server/plugin/plg_image_light/lib_transcode_linux_amd64.go
++++ b/server/plugin/plg_image_light/lib_transcode_linux_amd64.go
+@@ -1,4 +1,4 @@
+ package plg_image_light
+ 
+-// #cgo LDFLAGS: -lm -lpthread -L./deps -l:libtranscode_linux_amd64.a
++// #cgo LDFLAGS: -lm -lpthread -lvips -lraw -ljpeg -llcms2 -lstdc++ -lgomp -lpthread ${SRCDIR}/deps/libtranscode_linux_amd64.a
+ import "C"
